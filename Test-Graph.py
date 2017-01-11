@@ -6,20 +6,21 @@ def dfs(g, v, marked, edgeTo, count):
     for w in g[v]:
         if ((w not in marked) or (not marked[w])):
             edgeTo[w] = v
-            dfs(g, w, marked, edgeTo, count)
+            count = dfs(g, w, marked, edgeTo, count)
+    return count
 
 def pathTo(s, v, marked, edgeTo):
     if (not marked):
         return None
-        
+
     path = []
     x = v
     while (x != s):
         path.append(x)
         x = edgeTo[x]
-    
+
     path.append(s)
-    
+
     return path
 
 # readin files
@@ -50,10 +51,10 @@ count = 0
 marked = {}
 edgeTo = {}
 s = 0
-dfs(g, s, marked, edgeTo, count)
+count = dfs(g, s, marked, edgeTo, count)
 
 for v in g:
-    print (str(s) + " to " + str(v) + ": ", end="")
+    print (str(s) + " to " + str(v) + ": ", end='')
     if (marked[v]):
         path = pathTo(s, v, marked, edgeTo)
         for x in range(len(path)):
@@ -63,3 +64,5 @@ for v in g:
             else:
                 print ("-" + str(p),end="")
         print ("")
+
+print (count)
