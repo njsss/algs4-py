@@ -16,7 +16,7 @@ class CC(object):
         self.marked[v] = True
         self.cid[v] = self.count
         for w in g.adj[v]:
-            if (w not in self.marked) or (not self.marked[v]):
+            if (w not in self.marked) or (not self.marked[w]):
                 self.dfs(g, w)
 
     def connected(self, v, w):

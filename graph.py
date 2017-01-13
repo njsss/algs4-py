@@ -39,6 +39,14 @@ class Graph(object):
             print (self.adj[k])
         print ("-----------------")
 
+    def numberOfSelfLoops(self):
+        cnt = 0
+        for v in self.adj:
+            for w in self.adj[v]:
+                if (v == w):
+                    cnt += 1
+        return cnt/2
+
 
 if __name__ == '__main__':
     fn = "../algs4-data/tinyCG.txt"
