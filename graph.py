@@ -36,7 +36,7 @@ class Graph(object):
         print ("%d vetices & %d edges:" % (self.nV, self.nE))
         # print ("Constucted Graph:")
         for k in self.adj:
-            print (self.adj[k])
+            print ("{0}: {1}".format(k, self.adj[k]))
         print ("-----------------")
 
     def numberOfSelfLoops(self):
