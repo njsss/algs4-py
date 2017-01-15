@@ -19,6 +19,13 @@ class SymbolGraph(object):
                     self.g.addEdge(v, l[i])
         # self.g.reverseAdjList()
 
+    def contains(self, s):
+        if s in self.g.adj:
+            return True
+
+        return False
+        
+
 if __name__ == '__main__':
     fn = "../algs4-data/routes.txt"
     sg = SymbolGraph(fn, ' ')
