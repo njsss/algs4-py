@@ -52,7 +52,7 @@ class BreadthFirstPaths(object):
             if (self.hasPathTo(v)):
                 path = self.pathTo(v)
                 for x in range(len(path)):
-                    p = path.pop()
+                    p = path.pop()  # source appended at the end
                     if (p == self.s):
                         print (str(p), end="")
                     else:
