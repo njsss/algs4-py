@@ -5,13 +5,16 @@ class Graph(object):
     nE = 0    # number of edges
     adj = defaultdict(list)    # graph data in adjency list
 
-    def __init__(self, edges):
+    def __init__(self, edges=[]):
         """ construct graph"""
         for e in edges:
             (v, w) = e
             self.adj[v].append(w)
             self.adj[w].append(v)
 
+        self.reverseAdjList()
+
+    def reverseAdjList(self):
         # reverse -> stack like
         for k in self.adj:
             self.adj[k].reverse() # inline reverse
@@ -46,6 +49,11 @@ class Graph(object):
                 if (v == w):
                     cnt += 1
         return cnt/2
+
+    def addEdge(self, v, w):
+        self.adj[v].append(w)
+        self.adj[w].append(v)
+        self.nE += 1
 
 
 if __name__ == '__main__':
